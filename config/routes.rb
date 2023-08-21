@@ -21,5 +21,4 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :reservations
   resources :pool
-  
 end
