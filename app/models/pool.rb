@@ -1,7 +1,7 @@
 class Pool < ApplicationRecord
   belongs_to :users
   has_many :reservations
-  
+
 
   validates price:, presence: true, numericality: { greater_than: 0 }
   validates address:, presence: true, length: { maximum: 100 }

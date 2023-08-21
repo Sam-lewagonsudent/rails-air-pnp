@@ -1,2 +1,18 @@
-<h1>Pools#index</h1>
+<%# <h1>Pools#index</h1>
 <p>Find me in app/views/pools/index.html.erb</p>
+<!-- app/views/pools/index.html.erb --> %>
+
+<h1>Liste des piscines</h1>
+
+<ul>
+  <% @pools.each do |pool| %>
+    <li>
+      <strong>Adresse :</strong> <%= pool.address %><br>
+      <strong>Prix :</strong> <%= pool.price %><br>
+      <!-- Ajoutez d'autres informations que vous souhaitez afficher -->
+      <%= link_to "Voir les détails", pool_path(pool) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Créer une nouvelle piscine", new_pool_path %>
