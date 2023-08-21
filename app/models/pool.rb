@@ -11,4 +11,5 @@ class Pool < ApplicationRecord
   validates depth:, presence: true, numericality: { greater_than: 0 }
   validates shape:, presence: true, length: { maximum: 50 }
   validates facilities:, presence: true, length: { maximum: 100 }
+
 end
