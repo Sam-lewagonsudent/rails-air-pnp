@@ -1,0 +1,9 @@
+<h1>Reservation#index</h1>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>reservations</h1>
+
+<%= render "reservations/list", reservations: @reservations %>
+
+<%= link_to "New reservation", new_reservation_path %>

@@ -26,6 +26,7 @@ class PoolsController < ApplicationController
       redirect_to @pool
     else
       render :edit
+    end
   end
 
   def show
