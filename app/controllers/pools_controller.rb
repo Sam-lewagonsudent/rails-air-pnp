@@ -19,7 +19,6 @@ class PoolsController < ApplicationController
   end
 
   def edit
-    @pool
   end
 
   def update
@@ -30,7 +29,6 @@ class PoolsController < ApplicationController
   end
 
   def show
-    @pool = Pool.new
   end
 
   def delete
