@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
-  before_action :set_pool, only: %i[create]
-  # before action :set_reservation, only: %i[show edit update destroy]
+  before_action :set_pool, only: %i[create new index]
+  before_action :set_reservation, only: %i[show edit update destroy]
 
   def index
-    @reservations = Reservation.where(users_id: current_user.id)
+    @reservations = Reservation.where(user_id: current_user.id)
   end
 
   def new
@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params_reservation)
-    @reservation.user = current_user  #current_user
+    @reservation.user = current_user
     @reservation.pool = @pool
     if @reservation.save
       redirect_to pool_path(@reservation)
@@ -41,7 +41,7 @@ class ReservationsController < ApplicationController
   end
 
   private
-  
+
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end

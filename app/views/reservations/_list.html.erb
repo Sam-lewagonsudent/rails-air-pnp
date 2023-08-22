@@ -1,8 +1,9 @@
 <div id="reservations">
-<ul>
-  <% @reservations.each do |reservation| %>
- <li>
-    <%= render reservation %>
+
+  <% reservations.each do |reservation| %>
+    <div class="reservation">
+      <p>Start Date: <%= reservation.start_date %></p>
+      <p>End Date: <%= reservation.end_date %></p>
       <%= link_to "Show this reservation", reservation %>
       </li>
   <% end %>
