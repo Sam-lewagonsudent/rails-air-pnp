@@ -36,7 +36,10 @@ class PoolsController < ApplicationController
 
   def destroy
     @pool.destroy
-    redirect_to(@pool)
+    if redirect_to(@pool)
+    else
+      redirect_to(@reservations)
+    end
   end
 
   private
