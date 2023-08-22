@@ -5,3 +5,75 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+puts 'faker installed'
+
+Reservation.destroy_all
+puts 'reserv data Destroyed'
+
+Pool.destroy_all
+puts 'pool data Destroyed'
+
+User.destroy_all
+puts 'Seed data Destroyed'
+
+# Create users
+jean = User.create!(
+  email: 'jean@example.com',
+  password: 'password',
+  user_name: 'Jean',
+  bank_information: 'Bank details for Jean'
+)
+
+anthony = User.create!(
+  email: 'anthony@example.com',
+  password: 'password',
+  user_name: 'Anthony',
+  bank_information: 'Bank details for Anthony'
+)
+
+samy = User.create!(
+  email: 'samy@example.com',
+  password: 'password',
+  user_name: 'Samy',
+  bank_information: 'Bank details for Samy'
+)
+
+puts 'Users data created'
+
+# Create pools
+10.times do
+  user = [jean, anthony, samy].sample
+  Pool.create(
+    price: rand(100..350),
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    description: Faker::Lorem.sentence,
+    length: rand(0.0..5.0).round(1),
+    width: rand(0.0..5.0).round(1),
+    depth: rand(0.0..5.0).round(1),
+    shape: ['round', 'square', 'drop', 'natural'].sample,
+    facilities: ['BBQ', 'transat', 'ballon', 'umbrella', 'shower'].sample,
+    user: user
+  )
+end
+
+puts 'Pools data created'
+
+# Create reservations
+6.times do
+  pool = Pool.all.sample
+  user = [jean, anthony, samy].sample
+  Reservation.create!(
+    start_date: Faker::Date.between(from: Date.today + 1, to: Date.today + 30),
+    end_date: Faker::Date.between(from: Date.today + 31, to: Date.today + 60),
+    deposit: false,
+    owner_acceptation: false,
+    user: user,
+    pool: pool
+  )
+end
+
+puts 'Reservations data created'
+
+puts 'Seed data created'
