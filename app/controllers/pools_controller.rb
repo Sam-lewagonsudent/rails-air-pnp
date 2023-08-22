@@ -35,7 +35,7 @@ class PoolsController < ApplicationController
   end
 
   def destroy
-        redirect_to pools_path, notice: 'Deleted', status: :see_other if @pool.destroy
+    redirect_to pools_path, notice: 'Deleted', status: :see_other if @pool.destroy
   end
 
   private
