@@ -12,10 +12,12 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params_reservation)
+    @reservation.deposit = false
+    @reservation.owner_acceptation = false
     @reservation.user = current_user
     @reservation.pool = @pool
     if @reservation.save
-      redirect_to pool_path(@reservation)
+      redirect_to pool_path(@pool)
     else
       render :new, status: :unprocessable_entity
     end
@@ -51,6 +53,6 @@ class ReservationsController < ApplicationController
   end
 
   def params_reservation
-    parmas.require(:reservation).permit(:start_date, :end_date, :deposit, :owner_acceptation)
+    params.require(:reservation).permit(:start_date, :end_date, :deposit, :owner_acceptation)
   end
 end
