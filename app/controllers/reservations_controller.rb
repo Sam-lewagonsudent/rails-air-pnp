@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
-  before_action :set_pool, only: %i[create]
-  # before action :set_reservation, only: %i[show edit update destroy]
+  before_action :set_pool, only: %i[create new index]
+  before_action :set_reservation, only: %i[show edit update destroy]
 
   def index
-    @reservations = Reservation.where(users_id: current_user.id)
+    @reservations = Reservation.where(user_id: current_user.id)
   end
 
   def new
@@ -24,7 +24,6 @@ class ReservationsController < ApplicationController
   def show
   end
 
-
   def edit
   end
 
@@ -42,6 +41,7 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
@@ -49,7 +49,6 @@ class ReservationsController < ApplicationController
   def set_pool
     @pool = Pool.find(params[:pool_id])
   end
-
 
   def params_reservation
     parmas.require(:reservation).permit(:start_date, :end_date, :deposit, :owner_acceptation)
