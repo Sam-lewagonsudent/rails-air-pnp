@@ -24,7 +24,6 @@ class ReservationsController < ApplicationController
   def show
   end
 
-
   def edit
   end
 
@@ -38,10 +37,11 @@ class ReservationsController < ApplicationController
 
   def delete
     @reservation.destroy
-    redirect_to pool_path, notice: "reservation was successfully destroyed."
+    redirect_to pool_path, notice: "reservation was successfully destroyed.", status: :see_other
   end
 
   private
+  
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
@@ -49,7 +49,6 @@ class ReservationsController < ApplicationController
   def set_pool
     @pool = Pool.find(params[:pool_id])
   end
-
 
   def params_reservation
     parmas.require(:reservation).permit(:start_date, :end_date, :deposit, :owner_acceptation)

@@ -1,8 +1,12 @@
 <div id="reservations">
-  <% reservations.each do |reservation| %>
+<ul>
+  <% @reservations.each do |reservation| %>
+ <li>
     <%= render reservation %>
-    <p>
       <%= link_to "Show this reservation", reservation %>
-    </p>
+      </li>
   <% end %>
+  </ul>
 </div>
+
+<%= link_to "Créer une nouvelle reservation", new_reservation_path %>
