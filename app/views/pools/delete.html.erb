@@ -1,2 +1,7 @@
-<h1>Pools#delete</h1>
-<p>Find me in app/views/pools/delete.html.erb</p>
+<h1>Supprimer la piscine</h1>
+
+<p>Êtes-vous sûr de vouloir supprimer la piscine ? Cette action est irréversible.</p>
+
+<%= link_to "Annuler", pool_path(@pool), class: 'btn btn-secondary' %>
+<%= link_to "Supprimer", pool_path(@pool), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cette piscine ?" }, class: 'btn btn-danger ms-2' %>
+

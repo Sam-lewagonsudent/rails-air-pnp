@@ -1,2 +1,8 @@
-<h1>Pools#show</h1>
-<p>Find me in app/views/pools/show.html.erb</p>
+<h1>Détails de la piscine</h1>
+
+<strong>Adresse :</strong> <%= @pool.address %><br>
+<strong>Prix :</strong> <%= @pool.price %> €<br>
+<!-- Ajoutez d'autres informations que vous souhaitez afficher -->
+
+<%= link_to "Retour à la liste des piscines", pools_path %>
+<%= link_to "Modifier cette piscine", edit_pool_path(@pool) %>
