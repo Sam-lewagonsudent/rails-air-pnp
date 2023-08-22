@@ -1,11 +1,11 @@
-<h1>Détails de la piscine</h1>
+<h1>Détails de la réservation</h1>
 
 <strong>Adresse :</strong> <%= @reservation.pool.address %><br>
 <strong>Prix :</strong> <%= @reservation.pool.price %> €<br>
 <strong>Date de reservation :</strong> <%= @reservation.start_date %> €<br>
 <!-- Ajoutez d'autres informations que vous souhaitez afficher -->
 
-<%= link_to "Retour à la liste des reservations", reservation_path(@reservations) %>
+<%= link_to "Retour à la liste des reservations", reservations_path %>
 <%= link_to "Modifier cette reservation", edit_reservation_path(@reservation) %>
 
 <%= link_to "Delete",
