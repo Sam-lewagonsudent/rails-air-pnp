@@ -20,6 +20,19 @@
     <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     <%= link_to "Modifier cette piscine", edit_pool_path(@pool) %>
     <%= link_to "New reservation", new_pool_reservation_path(@pool) %>
-
   </div>
+
+    <div class="col-12 mt-3">
+        <% if Reservation.where(pool_id: @pool.id) %>
+         <h3>This pool has currently </h3>
+        <ul>
+          <% @pool.reservations.each do |reservation| %>
+            <li><%= link_to "Reservation on #{reservation.start_date}", reservation_path(reservation) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>There is no reservations. Why not <%= link_to 'book one', your_path_here %> now?</p>
+      <% end %>
+    </div>
+
 </div>
