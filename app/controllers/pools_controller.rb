@@ -1,6 +1,6 @@
 class PoolsController < ApplicationController
   before_action :set_pool, only: %i[show edit update destroy]
-  
+
   def index
     @pools = Pool.all
   end
@@ -12,11 +12,11 @@ class PoolsController < ApplicationController
   def create
     @pool = Pool.new(pool_params)
     @pool.user = current_user
-     if @pool.save
+    if @pool.save
       redirect_to pool_path(@pool)
-     else
+    else
       render :new, status: :unprocessable_entity
-     end
+    end
   end
 
   def edit
@@ -33,9 +33,9 @@ class PoolsController < ApplicationController
   def show
   end
 
-  def delete
+  def destroy
     @pool.destroy
-    redirect_to pool_path(@pool)
+    redirect_to(@pool)
   end
 
   private
@@ -45,6 +45,6 @@ class PoolsController < ApplicationController
   end
 
   def pool_params
-    params.require(:pool).permit(:price, :address, :description, :length, :width, :depth, :shape, :facilities)
+    params.require(:pool).permit(:price, :address, :description, :length, :width, :depth, :shape, :facilities, :photo)
   end
 end

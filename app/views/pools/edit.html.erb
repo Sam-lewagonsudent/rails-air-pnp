@@ -1,2 +1,10 @@
-<h1>Pools#edit</h1>
-<p>Find me in app/views/pools/edit.html.erb</p>
+<h1>Modifier la piscine</h1>
+
+<%= render "form", pool: @pool %>
+
+<br>
+
+<div>
+<%= link_to "Show this pool", @pool %> |
+  <%= link_to "Back to pools", pools_path %>
+</div>

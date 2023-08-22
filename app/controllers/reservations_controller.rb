@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params_reservation)
-    @reservation.user = current_user  #current_user
+    @reservation.user = current_user
     @reservation.pool = @pool
     if @reservation.save
       redirect_to pool_path(@reservation)
@@ -37,7 +37,7 @@ class ReservationsController < ApplicationController
 
   def delete
     @reservation.destroy
-    redirect_to pool_path, notice: "reservation was successfully destroyed."
+    redirect_to pool_path, notice: "reservation was successfully destroyed.", status: :see_other
   end
 
   private

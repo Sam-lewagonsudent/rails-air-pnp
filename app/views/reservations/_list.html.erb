@@ -1,10 +1,13 @@
 <div id="reservations">
+
   <% reservations.each do |reservation| %>
     <div class="reservation">
       <p>Start Date: <%= reservation.start_date %></p>
       <p>End Date: <%= reservation.end_date %></p>
-    <p>
       <%= link_to "Show this reservation", reservation %>
-    </p>
+      </li>
   <% end %>
+  </ul>
 </div>
+
+<%= link_to "Créer une nouvelle reservation", new_reservation_path %>

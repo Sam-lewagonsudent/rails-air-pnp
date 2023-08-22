@@ -1,22 +1,10 @@
-<h1 class="mb-4">Créer une nouvelle piscine</h1>
+<h1>Modifier la piscine</h1>
 
-<%= simple_form_for @pool, url: pools_path, html: { class: 'row g-3' } do |form| %>
-  <div class="col-md-6">
-    <%= form.input :price, label: 'Prix (en €)', input_html: { step: '0.01', min: 0 }, class: 'form-control' %>
-    <%= form.input :length, label: 'Longueur (m)', input_html: { step: '0.01', min: 0 }, class: 'form-control' %>
-    <%= form.input :width, label: 'Largeur (m)', input_html: { step: '0.01', min: 0 }, class: 'form-control' %>
-    <%= form.input :depth, label: 'Profondeur (m)', input_html: { step: '0.01', min: 0 }, class: 'form-control' %>
-  </div>
-  <div class="col-md-6">
-    <%= form.input :address, label: 'Adresse', as: :text, class: 'form-control' %>
-    <%= form.input :description, label: 'Description', as: :text, class: 'form-control' %>
-    <%= form.input :shape, label: 'Forme', class: 'form-control' %>
-    <%= form.input :facilities, label: 'Équipements', as: :text, class: 'form-control' %>
-    <%= form.input :photo, label: 'Photo', as: :file, class: 'form-control' %>
-  </div>
+<%= render 'form', pool: @pool %>
 
-  <div class="col-12 mt-3">
-    <%= form.button :submit, 'Créer la piscine', class: 'btn btn-primary' %>
-    <%= link_to "Annuler", pools_path, class: 'btn btn-secondary ms-2' %>
-  </div>
-<% end %>
+<br>
+
+<div>
+<%= link_to "Show this pool", @pool %> |
+  <%= link_to "Back to pools", pools_path %>
+</div>
