@@ -1,6 +1,6 @@
 class Pool < ApplicationRecord
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :address, presence: true, length: { maximum: 100 }

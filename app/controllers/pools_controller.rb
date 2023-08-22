@@ -35,11 +35,7 @@ class PoolsController < ApplicationController
   end
 
   def destroy
-    @pool.destroy
-    if redirect_to(@pool)
-    else
-      redirect_to(@reservations)
-    end
+        redirect_to pools_path, notice: 'Deleted', status: :see_other if @pool.destroy
   end
 
   private
