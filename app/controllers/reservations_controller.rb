@@ -38,9 +38,8 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def delete
-    @reservation.destroy
-    redirect_to pool_path, notice: "reservation was successfully destroyed.", status: :see_other
+  def destroy
+    redirect_to root_path, notice: 'Deleted', status: :see_other if @reservation.destroy
   end
 
   private
