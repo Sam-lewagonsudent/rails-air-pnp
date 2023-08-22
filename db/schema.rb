@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_110207) do
     t.text "facilities"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_pools_on_users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_pools_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -36,10 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_110207) do
     t.boolean "owner_acceptation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "pools_id"
-    t.index ["pools_id"], name: "index_reservations_on_pools_id"
-    t.index ["users_id"], name: "index_reservations_on_users_id"
+    t.bigint "user_id"
+    t.bigint "pool_id"
+    t.index ["pool_id"], name: "index_reservations_on_pool_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_110207) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "pools", "users", column: "users_id"
-  add_foreign_key "reservations", "pools", column: "pools_id"
-  add_foreign_key "reservations", "users", column: "users_id"
+  add_foreign_key "pools", "users"
+  add_foreign_key "reservations", "pools"
+  add_foreign_key "reservations", "users"
 end
