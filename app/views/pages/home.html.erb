@@ -1,18 +1,36 @@
 <% if current_user.nil? %>
-  <!-- If the user is not logged in -->
-  <p>Welcome! Please <%= link_to 'Sign Up', new_user_registration_path %> or <%= link_to 'Log In', new_user_session_path %> to get started.</p>
+    <div class="welcome-container">
+      <div class="welcome-text-container">
+        <p class="welcome-text">
+          Welcome! Please <%= link_to 'Sign Up', new_user_registration_path %> or <%= link_to 'Log In', new_user_session_path %> to get started.
+        </p>
+      </div>
+    </div>
 <% else %>
-  <!-- If the user is logged in -->
-  <h2>Welcome back, <%= current_user.user_name %>!</h2>
+  <div class="banner-image">
+    <div class="banner-text">
+      <h2>Welcome back, <%= current_user.user_name %>!</h2>
+    </div>
+  </div>
 
-  <% if current_user.pools.any? %>
-    <h3>Your Pools:</h3>
-    <ul>
+  <div class="content">
+  <div class="container-pools">
+    <div class="row">
+    <h3>Your Pools</h3>
       <% current_user.pools.each do |pool| %>
-        <li><%= link_to pool.address, pool_path(pool) %></li>
+        <div class="col-md-6 mb-4 card-pools">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= pool.address %></h5>
+              <p class="card-text"><%= pool.description %></p>
+              <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
+              <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </ul>
-  <% end %>
+    </div>
+  </div>
 
   <% if current_user.reservations.any? %>
     <h3>Your Reservations:</h3>
@@ -24,5 +42,5 @@
   <% else %>
     <p>You have no reservations. Why not <%= link_to 'book one', your_path_here %> now?</p>
   <% end %>
-
+</div>
 <% end %>
