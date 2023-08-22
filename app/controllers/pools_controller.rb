@@ -32,9 +32,9 @@ class PoolsController < ApplicationController
   def show
   end
 
-  def delete
+  def destroy
     @pool.destroy
-    redirect_to pool_path(@pool)
+    redirect_to(@pool)
   end
 
   private
@@ -44,6 +44,6 @@ class PoolsController < ApplicationController
   end
 
   def pool_params
-    params.require(:pool).permit(:price, :address, :description, :length, :width, :depth, :shape, :facilities)
+    params.require(:pool).permit(:price, :address, :description, :length, :width, :depth, :shape, :facilities, :photo)
   end
 end
