@@ -1,8 +1,23 @@
 <h1>Détails de la piscine</h1>
 
-<strong>Adresse :</strong> <%= @pool.address %><br>
-<strong>Prix :</strong> <%= @pool.price %> €<br>
-<!-- Ajoutez d'autres informations que vous souhaitez afficher -->
+<div class="row g-3">
+  <div class="col-md-6">
 
-<%= link_to "Retour à la liste des piscines", pools_path %>
-<%= link_to "Modifier cette piscine", edit_pool_path(@pool) %>
+  </div>
+  <div class="col-md-6">
+    <label for="pool_photo">Photo</label>
+  </div>
+
+
+  <div class="col-12 mt-3">
+    <strong>Adresse :</strong> <%= @pool.address %><br>
+    <strong>Prix :</strong> <%= @pool.price %> €<br>
+
+  </div>
+
+  <div class="col-12 mt-3">
+    <%= link_to "Retour à la liste des piscines", pools_path, class: 'btn btn-secondary' %>
+    <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
+  </div>
+</div>
