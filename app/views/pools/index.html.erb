@@ -5,11 +5,11 @@
     <li>
       <strong>Adresse :</strong> <%= pool.address %><br>
       <strong>Prix :</strong> <%= pool.price %> €<br>
-      
 
-      <%= link_to "Voir les détails", pool_path(pool) %>
+
+      <%= link_to "Voir les détails", pool_path(pool), class: "btn btn-flat" %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "Créer une nouvelle piscine", new_pool_path %>
+<%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat" %>

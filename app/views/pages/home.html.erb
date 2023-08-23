@@ -2,7 +2,7 @@
     <div class="welcome-container">
       <div class="welcome-text-container">
         <p class="welcome-text">
-          Welcome! Please <%= link_to 'Sign Up', new_user_registration_path %> or <%= link_to 'Log In', new_user_session_path %> to get started.
+          Welcome! Please <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-flat"%> or <%= link_to 'Log In', new_user_session_path,  class: "btn btn-flat" %> to get started.
         </p>
       </div>
     </div>
@@ -54,7 +54,7 @@
       </div>
 
   <% else %>
-    <p>You have no reservations. Why not <%= link_to 'book one', root_path %> now?</p>
+    <p>You have no reservations. Why not <%= link_to 'book one', root_path, class: "btn btn-flat"%> now?</p>
   <% end %>
 
 </div>

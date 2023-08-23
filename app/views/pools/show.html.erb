@@ -16,10 +16,10 @@
   </div>
 
   <div class="col-12 mt-3">
-    <%= link_to "Retour à la liste des piscines", pools_path, class: 'btn btn-secondary' %>
-    <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    <%= link_to "Modifier cette piscine", edit_pool_path(@pool) %>
-    <%= link_to "New reservation", new_pool_reservation_path(@pool) %>
+    <%= link_to "Retour à la liste des piscines", pools_path, class: 'btn btn-flat' %>
+    <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat"%>
+    <%= link_to "Modifier cette piscine", edit_pool_path(@pool), class: "btn btn-flat" %>
+    <%= link_to "New reservation", new_pool_reservation_path(@pool), class: "btn btn-flat" %>
   </div>
 
     <div class="col-12 mt-3">
@@ -31,7 +31,7 @@
           <% end %>
         </ul>
       <% else %>
-        <p>There is no reservations. Why not <%= link_to 'book one', your_path_here %> now?</p>
+        <p>There is no reservations. Why not <%= link_to 'book one', pools_path, class: "btn btn-flat" %> now?</p>
       <% end %>
     </div>
 
