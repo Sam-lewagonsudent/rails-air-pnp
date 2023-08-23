@@ -1,15 +1,14 @@
 <h1>Liste des piscines</h1>
 
-<ul>
-  <% @pools.each do |pool| %>
-    <li>
-      <strong>Adresse :</strong> <%= pool.address %><br>
-      <strong>Prix :</strong> <%= pool.price %> €<br>
+<% @pools.each do |pool| %>
+  <div class="card">
+    <%= image_tag pool.photo, class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= pool.address %></h5>
+      <p class="card-text"><%= pool.description %></p>
+      <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
+      <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
 
-
-      <%= link_to "Voir les détails", pool_path(pool), class: "btn btn-primary" %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-primary" %>
