@@ -2,7 +2,7 @@
     <div class="welcome-container">
       <div class="welcome-text-container">
         <p class="welcome-text">
-          Welcome! Please <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-flat"%> or <%= link_to 'Log In', new_user_session_path,  class: "btn btn-flat" %> to get started.
+          Welcome! Please <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"%> or <%= link_to 'Log In', new_user_session_path,  class: "btn btn-primary" %> to get started.
         </p>
       </div>
     </div>
@@ -14,6 +14,7 @@
   </div>
 
   <div class="content">
+
   <div class="container-pools">
     <div class="row g-0 row-pools-title">
       <div class="col-md-6">
@@ -23,7 +24,7 @@
       </div>
       <div class="col-md-6 d-flex justify-content-end align-items-center">
         <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-create-pool" %>
-      </div>
+       </div>
     </div>
 
     <div class="row g-0">
@@ -57,7 +58,7 @@
                 <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
                 <p class="card-text"><strong>Start Date:</strong> <%= reservation.start_date %></p>
                 <p class="card-text"><strong>End Date:</strong> <%= reservation.end_date %></p>
-                <%= link_to "Details", reservation_path(reservation), class: "btn btn-flat" %>
+                <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
               </div>
             </div>
           </div>
@@ -65,7 +66,7 @@
       </div>
 
   <% else %>
-    <p>You have no reservations. Why not <%= link_to 'book one', root_path, class: "btn btn-flat"%> now?</p>
+    <p>You have no reservations. Why not <%= link_to 'book one', root_path, class: "btn btn-primary"%> now?</p>
   <% end %>
 
 </div>
