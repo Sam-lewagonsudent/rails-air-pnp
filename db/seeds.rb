@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+require "open-uri"
 require 'faker'
+
 puts 'faker installed'
 
 Reservation.destroy_all
@@ -45,7 +46,7 @@ puts 'Users data created'
 # Create pools
 10.times do
   user = [jean, anthony, samy].sample
-  Pool.create(
+  pool = Pool.new(
     price: rand(100..350),
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
     description: Faker::Lorem.sentence,
@@ -56,6 +57,10 @@ puts 'Users data created'
     facilities: ['BBQ', 'transat', 'ballon', 'umbrella', 'shower'].sample,
     user: user
   )
+
+  img_src = URI.open("https://source.unsplash.com/random?pool=#{rand(1..100)}")
+  pool.photo.attach(io: img_src, filename: "pools.png", content_type: 'image/png')
+  pool.save
 end
 
 puts 'Pools data created'
