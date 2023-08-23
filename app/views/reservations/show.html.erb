@@ -6,10 +6,10 @@
 <!-- Ajoutez d'autres informations que vous souhaitez afficher -->
 
 
-<%= link_to "Modifier cette reservation", edit_pool_reservation_path(@reservation), class: "btn btn-flat" %>
+<%= link_to "Modifier cette reservation", edit_pool_reservation_path(@reservation), class: "btn btn-primary" %>
 
 <%= link_to "supprimer la reservation",
   reservation_path(@reservation),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-  class: "btn btn-flat"
+  class: "btn btn-primary"
 %>
