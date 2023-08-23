@@ -24,15 +24,15 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
   end
 
   def edit
+
   end
 
   def update
     if @reservation.update(params_reservation)
-      redirect_to @reservation, notice: "reservation was successfully updated."
+      redirect_to reservation_path(@reservation), notice: "reservation was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
