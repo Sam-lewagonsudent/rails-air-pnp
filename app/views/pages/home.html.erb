@@ -18,7 +18,9 @@
       <div class="row g-0">
 
         <h2>Your Pools</h2>
+
           <div class="row">
+             <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat" %>
             <% current_user.pools.each do |pool| %>
               <div class="col-md-6 mb-4 card-pools">
                 <div class="card">
@@ -48,7 +50,7 @@
                 <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
                 <p class="card-text"><strong>Start Date:</strong> <%= reservation.start_date %></p>
                 <p class="card-text"><strong>End Date:</strong> <%= reservation.end_date %></p>
-                <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+                <%= link_to "Details", reservation_path(reservation), class: "btn btn-flat" %>
               </div>
             </div>
           </div>
