@@ -14,33 +14,48 @@
   </div>
 
   <div class="content">
-  <div class="container-pools">
-    <div class="row">
-    <h3>Your Pools</h3>
-      <% current_user.pools.each do |pool| %>
-        <div class="col-md-6 mb-4 card-pools">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><%= pool.address %></h5>
-              <p class="card-text"><%= pool.description %></p>
-              <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
-              <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
+    <div class="container-pools">
+      <div class="row g-0">
+
+        <h2>Your Pools</h2>
+          <% current_user.pools.each do |pool| %>
+            <div class="col-md-6 mb-4 card-pools">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= pool.address %></h5>
+                  <p class="card-text"><%= pool.description %></p>
+                  <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
+                  <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+
+      </div>
     </div>
-  </div>
 
   <% if current_user.reservations.any? %>
-    <h3>Your Reservations:</h3>
-    <ul>
-      <% current_user.reservations.each do |reservation| %>
-        <li><%= link_to "Reservation for #{reservation.pool.address} on #{reservation.start_date}", reservation_path(reservation) %></li>
-      <% end %>
-    </ul>
+
+    <h2>Your Reservations</h2>
+      <div class="row g-0">
+        <% current_user.reservations.each do |reservation| %>
+          <div class="col-md-6 mb-4 card-reservations">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_date}" %></h5>
+                <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
+                <p class="card-text"><strong>Start Date:</strong> <%= reservation.start_date %></p>
+                <p class="card-text"><strong>End Date:</strong> <%= reservation.end_date %></p>
+                <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
   <% else %>
     <p>You have no reservations. Why not <%= link_to 'book one', your_path_here %> now?</p>
   <% end %>
+
 </div>
 <% end %>
