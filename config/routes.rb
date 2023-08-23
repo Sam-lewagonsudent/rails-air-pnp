@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :pools do
-    resources :reservations, only: [:new, :create]
+    resources :reservations, only: [:new, :create, :edit, :update]
   end
 
-  resources :reservations, only: [:index, :show, :edit, :destroy]
+  resources :reservations, only: [:index, :show, :destroy]
 end
