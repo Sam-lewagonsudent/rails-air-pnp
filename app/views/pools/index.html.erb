@@ -1,15 +1,23 @@
-<h1>Liste des piscines</h1>
+<div class="header-container">
+  <div class="listes-des-piscines">
+    <h1 class="header-list">Liste des piscines</h1>
+  </div>
+  <div class="create-pool-button">
+    <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-create-pool" %>
+  </div>
+</div>
 
-<ul>
+<div class="row justify-content-center row-cols-1 row-cols-md-4 g-0">
   <% @pools.each do |pool| %>
-    <li>
-      <strong>Adresse :</strong> <%= pool.address %><br>
-      <strong>Prix :</strong> <%= pool.price %> €<br>
-
-
-      <%= link_to "Voir les détails", pool_path(pool), class: "btn btn-flat" %>
-    </li>
+    <div class="col-md-3 mb-3">
+      <div class="card-list-pool">
+      <%= image_tag pool.photo, class: "card-img-top" %>
+        <div class="card-body-list-pool">
+          <strong>Adresse :</strong> <%= pool.address %><br>
+          <strong>Prix :</strong> <%= pool.price %> €<br>
+          <%= link_to "Voir les détails", pool_path(pool), class: "btn btn-flat" %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
-
-<%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat" %>
+</div>

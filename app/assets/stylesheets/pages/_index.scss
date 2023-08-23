@@ -1,2 +1,83 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.row-cols-md-4 .col-md-3 {
+  margin: 10px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.listes-des-piscines h1 {
+  font-size: 34px;
+  margin: 0;
+}
+
+.create-pool-button {
+  margin-left: auto;
+}
+
+.listes-des-piscines {
+  text-align: left;
+  margin: 20px;
+}
+
+.btn-create-pool {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-create-pool:hover {
+  background-color: #0056b3;
+}
+
+.row-cols-md-3 .col {
+  margin-bottom: 20px;
+}
+
+.card-list-pool {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body-list-pool {
+  padding: 15px;
+}
+
+.card-body-list-pool strong {
+  font-weight: bold;
+}
+
+.btn-flat {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-flat:hover {
+  background-color: #0056b3;
+}
+
+.header-list {
+  font-weight: bold;
+}

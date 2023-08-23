@@ -14,33 +14,40 @@
   </div>
 
   <div class="content">
-    <div class="container-pools">
-      <div class="row g-0">
-
-        <h2>Your Pools</h2>
-
-          <div class="row">
-             <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat" %>
-            <% current_user.pools.each do |pool| %>
-              <div class="col-md-6 mb-4 card-pools">
-                <div class="card">
-                  <%= image_tag pool.photo, class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= pool.address %></h5>
-                    <p class="card-text"><%= pool.description %></p>
-                    <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
-                    <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
+  <div class="container-pools">
+    <div class="row g-0 row-pools-title">
+      <div class="col-md-6">
+        <div class="your-pools">
+          <h2 class="your-pools-header">Your Pools:</h2>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end align-items-center">
+        <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-create-pool" %>
       </div>
     </div>
 
-  <% if current_user.reservations.any? %>
+    <div class="row g-0">
+      <% current_user.pools.each do |pool| %>
+        <div class="col-md-6 mb-4 card-pools">
+          <div class="card">
+            <%= image_tag pool.photo, class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= pool.address %></h5>
+              <p class="card-text"><%= pool.description %></p>
+              <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
+              <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-    <h2>Your Reservations</h2>
+  <% if current_user.reservations.any? %>
+    <div class="your-reservations">
+    <h2 class="your-pools-header">Your Reservations:</h2>
+    </div>
       <div class="row g-0">
         <% current_user.reservations.each do |reservation| %>
           <div class="col-md-6 mb-4 card-reservations">
@@ -63,9 +70,3 @@
 
 </div>
 <% end %>
-
-<script>
-  function getRandomNumber() {
-    return Math.floor(Math.random() * 10);
-  }
-</script>
