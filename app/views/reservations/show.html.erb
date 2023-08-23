@@ -9,6 +9,7 @@
     <p class="card-text"><strong>Prix :</strong> <%= @reservation.pool.price %> €</p>
     <p class="card-text"><strong>Date de réservation :</strong> <%= @reservation.start_date %></p>
 
+
     <%= link_to "Modifier cette réservation", edit_pool_reservation_path(@reservation), class: "btn btn-primary" %>
     <%= link_to "Supprimer la réservation",
       reservation_path(@reservation),
@@ -17,3 +18,4 @@
     %>
   </div>
 </div>
+

@@ -1,4 +1,5 @@
 <h1>Liste des piscines</h1>
+
 <% @pools.each do |pool| %>
   <div class="card">
     <%= image_tag pool.photo, class: "card-img-top" %>
@@ -10,3 +11,4 @@
     </div>
   </div>
 <% end %>
+
