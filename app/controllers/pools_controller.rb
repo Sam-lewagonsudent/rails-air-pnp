@@ -25,9 +25,9 @@ class PoolsController < ApplicationController
 
   def update
     if @pool.update(pool_params)
-      redirect_to @pool
+      redirect_to pool_path(@pool)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

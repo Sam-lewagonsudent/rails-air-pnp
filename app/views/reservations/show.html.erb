@@ -2,11 +2,11 @@
 
 <strong>Adresse :</strong> <%= @reservation.pool.address %><br>
 <strong>Prix :</strong> <%= @reservation.pool.price %> €<br>
-<strong>Date de reservation :</strong> <%= @reservation.start_date %> €<br>
+<strong>Date de reservation :</strong> <%= @reservation.start_date %> <br>
 <!-- Ajoutez d'autres informations que vous souhaitez afficher -->
 
 
-<%= link_to "Modifier cette reservation", edit_reservation_path(@reservation), class: "btn btn-flat" %>
+<%= link_to "Modifier cette reservation", edit_pool_reservation_path(@reservation), class: "btn btn-flat" %>
 
 <%= link_to "supprimer la reservation",
   reservation_path(@reservation),

@@ -18,19 +18,22 @@
       <div class="row g-0">
 
         <h2>Your Pools</h2>
-        <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat" %>
-          <% current_user.pools.each do |pool| %>
-            <div class="col-md-6 mb-4 card-pools">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title"><%= pool.address %></h5>
-                  <p class="card-text"><%= pool.description %></p>
-                  <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
-                  <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat" %>
+
+          <div class="row">
+             <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat" %>
+            <% current_user.pools.each do |pool| %>
+              <div class="col-md-6 mb-4 card-pools">
+                <div class="card">
+                  <%= image_tag pool.photo, class: "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= pool.address %></h5>
+                    <p class="card-text"><%= pool.description %></p>
+                    <p class="card-text"><strong>Price:</strong> <%= pool.price %> €</p>
+                    <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-primary" %>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
 
       </div>
     </div>
@@ -55,8 +58,14 @@
       </div>
 
   <% else %>
-    <p>You have no reservations. Why not <%= link_to 'book one', pools_path, class: "btn btn-flat"%> now?</p>
+    <p>You have no reservations. Why not <%= link_to 'book one', root_path, class: "btn btn-flat"%> now?</p>
   <% end %>
 
 </div>
 <% end %>
+
+<script>
+  function getRandomNumber() {
+    return Math.floor(Math.random() * 10);
+  }
+</script>

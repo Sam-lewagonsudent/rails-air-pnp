@@ -1,4 +1,4 @@
-<h1 class="mb-4">Créer une nouvelle piscine</h1>
+<h1 class="mb-4"></h1>
 
 <%= simple_form_for @pool, html: { class: 'row g-3' } do |form| %>
   <div class="col-md-6">
@@ -15,8 +15,8 @@
     <%# <%= f.input :photo, as: :file %>
   </div>
 
-  <div class="col-12 mt-3">
-    <%= form.button :submit, 'Créer la piscine', class: 'btn btn-primary' %>
+  <div class="col-12 mt-3 form-actions">
+    <%= form.button :submit, 'accepter', class: 'btn btn-primary' %>
     <%= link_to "Annuler", pools_path, class: 'btn btn-secondary ms-2' %>
   </div>
 <% end %>
