@@ -1,6 +1,16 @@
-.btn-primary{
-  background-color: rgb(204, 88, 88);
-  color: azure;
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
 .btn-home-create-pool {

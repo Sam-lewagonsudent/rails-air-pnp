@@ -3,7 +3,7 @@
     <h1 class="header-list">Liste des piscines</h1>
   </div>
   <div class="create-pool-button">
-    <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-create-pool" %>
+    <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-index btn-create-pool" %>
   </div>
 </div>
 
@@ -15,7 +15,7 @@
         <div class="card-body-list-pool">
           <strong>Adresse :</strong> <%= pool.address %><br>
           <strong>Prix :</strong> <%= pool.price %> €<br>
-          <%= link_to "Voir les détails", pool_path(pool), class: "btn btn-flat" %>
+          <%= link_to "Voir les détails", pool_path(pool), class: "btn btn-flat btn-index" %>
         </div>
       </div>
     </div>

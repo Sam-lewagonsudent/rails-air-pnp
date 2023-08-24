@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-center">
-          <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-home-create-pool" %>
+          <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-home btn-create-pool" %>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
                   <h5 class="card-title-home-pools"><%= pool.address %></h5>
                   <p class="card-text-home-pools"><%= pool.description %></p>
                   <p class="card-text-home-pools"><strong>Price:</strong> <%= pool.price %> €</p>
-                  <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat" %>
+                  <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat btn-home" %>
                 </div>
               </div>
             </div>
