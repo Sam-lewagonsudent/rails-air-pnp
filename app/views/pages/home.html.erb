@@ -14,6 +14,32 @@
     </div>
   </div>
 
+<% if @reservations.any?%>
+  <div class="your-reservations">
+    <h2 class="your-pools-header">Vos locations:</h2>
+  </div>
+  <div class="row g-0">
+    <% @reservations.each do |reservation| %>
+      <div class="col-md-6 mb-4 card-home-reservations">
+        <div class="card">
+          <div class="card-body">
+
+            <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
+            <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
+            <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
+            <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
+
+            <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
+<% end %>
+
+
 <div class="content-home">
   <div class="d-flex justify-content-center align-items-center">
     <div class="container-home-pools">
@@ -33,7 +59,7 @@
           <div class="col-md-5">
             <div class="card-home-pools">
               <div class="card-home">
-                <%# <%= image_tag pool.photo, class: "card-img-top card-img-rounded-top" %> 
+                <%= image_tag pool.photo, class: "card-img-top card-img-rounded-top" %>
                 <div class="card-body-home-pools">
                   <h5 class="card-title-home-pools"><%= pool.address %></h5>
                   <p class="card-text-home-pools"><%= pool.description %></p>
