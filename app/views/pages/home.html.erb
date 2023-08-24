@@ -2,15 +2,15 @@
     <div class="welcome-container">
       <div class="welcome-text-container">
         <p class="welcome-text">
-          Welcome! Please <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"%> or <%= link_to 'Log In', new_user_session_path,  class: "btn btn-primary" %> to get started.
+          Bonjour! veuillez <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"%> ou <%= link_to 'Log In', new_user_session_path,  class: "btn btn-primary" %> pour commencer.
         </p>
-        <%= image_tag "Air PnP.png" %>
+        <%= image_tag "Air PnP2.png" %>
       </div>
     </div>
 <% else %>
   <div class="banner-image">
     <div class="banner-text">
-      <h2>Welcome back, <%= current_user.user_name %>!</h2>
+      <h2>Salut, <%= current_user.user_name %>!</h2>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
       <div class="row g-0 row-home-pools-title">
         <div class="col-md-6">
           <div class="home-your-pools">
-            <h2 class="your-pools-header">Your Pools:</h2>
+            <h2 class="your-pools-header">Vos piscine:</h2>
           </div>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-center">
@@ -37,7 +37,7 @@
                 <div class="card-body-home-pools">
                   <h5 class="card-title-home-pools"><%= pool.address %></h5>
                   <p class="card-text-home-pools"><%= pool.description %></p>
-                  <p class="card-text-home-pools"><strong>Price:</strong> <%= pool.price %> €</p>
+                  <p class="card-text-home-pools"><strong>Prix:</strong> <%= pool.price %> €</p>
                   <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat" %>
                 </div>
               </div>
@@ -56,7 +56,7 @@
 
 <% if current_user.reservations.any? %>
   <div class="your-reservations">
-    <h2 class="your-pools-header">Your Reservations:</h2>
+    <h2 class="your-pools-header">Vos Reservations:</h2>
   </div>
   <div class="row g-0">
     <% current_user.reservations.each do |reservation| %>
@@ -64,9 +64,9 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_date}" %></h5>
-            <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
-            <p class="card-text"><strong>Start Date:</strong> <%= reservation.start_date %></p>
-            <p class="card-text"><strong>End Date:</strong> <%= reservation.end_date %></p>
+            <p class="card-text"><strong>Adresse de la piscine:</strong> <%= reservation.pool.address %></p>
+            <p class="card-text"><strong>Date de reservation:</strong> <%= reservation.start_date %></p>
+            <p class="card-text"><strong>Temps de la reservation:</strong> <%= reservation.end_date %></p>
             <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
           </div>
         </div>
@@ -74,7 +74,7 @@
     <% end %>
   </div>
 <% else %>
-  <p>You have no reservations. Why not <%= link_to 'book one', root_path, class: "btn btn-primary"%> now?</p>
+  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
 <% end %>
   </div>
 <% end %>
