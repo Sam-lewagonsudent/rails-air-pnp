@@ -11,7 +11,7 @@
   <% @pools.each do |pool| %>
     <div class="col-md-3 mb-3">
       <div class="card-list-pool">
-      <%# <%= image_tag pool.photo, class: "card-img-top-index" %> 
+      <%= image_tag pool.photo, class: "card-img-top-index" %>
         <div class="card-body-list-pool">
           <strong>Adresse :</strong> <%= pool.address %><br>
           <strong>Prix :</strong> <%= pool.price %> €<br>
