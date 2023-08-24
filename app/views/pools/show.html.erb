@@ -16,7 +16,6 @@
   </div>
 
   <div class="col-12 mt-3">
-  raise
   <% if @pool.user_id == current_user.id %>
       <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary"%>
       <%= link_to "Modifier cette piscine", edit_pool_path(@pool), class: "btn btn-primary" %>

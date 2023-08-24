@@ -12,7 +12,6 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params_reservation)
-    @reservation.deposit = false
     @reservation.owner_acceptation = false
     @reservation.user = current_user
     @reservation.pool = @pool
@@ -53,6 +52,6 @@ class ReservationsController < ApplicationController
   end
 
   def params_reservation
-    params.require(:reservation).permit(:start_date, :end_date, :deposit, :owner_acceptation)
+    params.require(:reservation).permit(:start_date, :start_time, :end_time, :owner_acceptation)
   end
 end
