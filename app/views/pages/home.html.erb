@@ -59,7 +59,7 @@
   </div>
   <div class="row g-0">
     <% current_user.reservations.each do |reservation| %>
-      <div class="col-md-6 mb-4 card-reservations">
+      <div class="col-md-6 mb-4 card-home-reservations">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_date}" %></h5>
