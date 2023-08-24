@@ -12,6 +12,7 @@ class Pool < ApplicationRecord
   validates :facilities, presence: true, length: { maximum: 100 }
 
   has_one_attached :photo
+  validates :photo, presence: true
 
 #   has_one_attached :photo, dependent: :destroy
 

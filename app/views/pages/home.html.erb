@@ -29,14 +29,16 @@
             <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
             <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
 
+
             <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+            <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id:reservation.id, pool_id: reservation.pool_id), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 <% else %>
-  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
+  <p>Vous n'avez pas de location en attente de validation </p>
 <% end %>
 
 
