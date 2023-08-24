@@ -2,15 +2,17 @@ class Reservation < ApplicationRecord
   belongs_to :pool
   belongs_to :user
 
-  validates :deposit, inclusion: [true, false]
+
   validates :owner_acceptation, inclusion: [true, false]
   validates :start_date, presence: true
-  validates :end_date, presence: true
-  validate :start_date_before_end_date
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validate :end_time_after_start_time
 
   private
 
-  def start_date_before_end_date
-    errors.add(:start_date, "must be before end date") if start_date && end_date && start_date >= end_date
+
+  def end_time_after_start_time
+    errors.add(:start_time, "must be before end time") if start_time && end_time && start_time >= end_time
   end
 end
