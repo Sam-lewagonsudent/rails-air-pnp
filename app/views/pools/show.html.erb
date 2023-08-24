@@ -24,7 +24,7 @@
 
     <div class="col-12 mt-3">
         <% if Reservation.where(pool_id: @pool.id) %>
-         <h3>This pool has currently </h3>
+          <h3>This pool has currently </h3>
         <ul>
           <% @pool.reservations.each do |reservation| %>
             <li><%= link_to "Reservation on #{reservation.start_date}", reservation_path(reservation) %></li>
