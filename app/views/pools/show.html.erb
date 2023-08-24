@@ -1,41 +1,56 @@
-<h1>Détails de la piscine</h1>
+<div class="cards-container">
+  <div class="card-details">
+    <div class="card-image">
+      <%= image_tag @pool.photo, class: "top-image" %>
+    </div>
+    <div class="card-content">
+      <h1 class="card-title"><strong>Détails de la piscine</strong></h1>
 
-<div class="row g-3">
-  <div class="col-md-6">
-    <strong>Propriétaire :</strong> <%= @pool.user.user_name %><br>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <strong>Propriétaire :</strong> <%= @pool.user.user_name %><br>
+        </div>
+        <div class="col-md-6">
+          <label for="pool_photo"></label>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-12 mt-3">
+          <strong>Adresse :</strong> <%= @pool.address %><br>
+          <strong>Prix :</strong> <%= @pool.price %> €<br>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-12 mt-3">
+          <% if @pool.user_id == current_user.id %>
+            <div class="d-flex justify-content-between">
+              <%= link_to "Modifier cette piscine", edit_pool_path(@pool), class: "btn btn-primary modifier-button" %>
+              <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary modifier-button" %>
+            </div>
+          <% end %>
+          <%= link_to "New reservation", new_pool_reservation_path(@pool), class: "btn btn-primary" %>
+          <%= link_to "Retour à la liste des piscines", pools_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <label for="pool_photo">Photo</label>
-  </div>
 
+  <div class="spacer"></div>
 
-  <div class="col-12 mt-3">
-    <strong>Adresse :</strong> <%= @pool.address %><br>
-    <strong>Prix :</strong> <%= @pool.price %> €<br>
-
-  </div>
-
-  <div class="col-12 mt-3">
-  <% if @pool.user_id == current_user.id %>
-      <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary"%>
-      <%= link_to "Modifier cette piscine", edit_pool_path(@pool), class: "btn btn-primary" %>
-<% else %>
-    <% end %>
-    <%= link_to "New reservation", new_pool_reservation_path(@pool), class: "btn btn-primary" %>
-    <%= link_to "Retour à la liste des piscines", pools_path, class: 'btn btn-primary' %>
-  </div>
-
-    <div class="col-12 mt-3">
-        <% if Reservation.where(pool_id: @pool.id) %>
-          <h3>This pool has currently </h3>
+  <div class="card-reservations">
+    <div class="card-content">
+      <% if @pool.reservations.any? %>
+        <h3>This pool has currently </h3>
         <ul>
           <% @pool.reservations.each do |reservation| %>
             <li><%= link_to "Reservation on #{reservation.start_date}", reservation_path(reservation) %></li>
           <% end %>
         </ul>
       <% else %>
-        <p>There is no reservations. Why not <%= link_to 'book one', pools_path, class: "btn btn-primary" %> now?</p>
+        <p>There are no reservations. Why not <%= link_to 'book one', pools_path, class: "btn btn-primary" %> now?</p>
       <% end %>
     </div>
-
+  </div>
 </div>

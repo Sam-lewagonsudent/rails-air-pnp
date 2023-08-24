@@ -1,0 +1,63 @@
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.card-details {
+  height: 70vh;
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.top-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.card-reservations {
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  padding: 20px;
+}
+
+.card-details .modifier-button {
+  margin-bottom: 10px;
+}
