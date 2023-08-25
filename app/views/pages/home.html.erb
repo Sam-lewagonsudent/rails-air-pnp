@@ -25,9 +25,9 @@
       <div class="reservation-card-content">
 
         <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
-        <p class="reservation-card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
-        <p class="reservation-card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
-        <p class="reservation-card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
+        <p class="reservation-card-text"><strong>Adresse:</strong> <%= reservation.pool.address %></p>
+        <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.start_date %></p>
+
 
         <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
         <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id: reservation.id, pool_id: reservation.pool_id), class: "btn btn-reservation" %>
@@ -88,9 +88,9 @@
       <div class="reservation-card-content">
 
         <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
-        <p class="reservation-card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
-        <p class="reservation-card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
-        <p class="reservation-card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
+        <p class="reservation-card-text"><strong>Adresse:</strong> <%= reservation.pool.address %></p>
+        <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.pool.start_date %></p>
+
 
         <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
 
@@ -110,7 +110,7 @@
 </div>
 <% else %>
 <div class="no-reservations-message">
-  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
+  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> maintenant?</p>
 </div>
 <% end %>
 </div>
