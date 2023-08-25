@@ -8,7 +8,7 @@
 
       <div class="row g-3">
         <div class="col-md-6">
-          <strong>Pool Address:</strong> <%= @reservation.pool.address %><br>
+          <strong>Adresse:</strong> <%= @reservation.pool.address %><br>
         </div>
         <div class="col-md-6">
           <label for="pool_photo"></label>
@@ -17,8 +17,8 @@
 
       <div class="row g-3">
         <div class="col-12 mt-3">
-          <strong>Start time:</strong> <%= @reservation.start_time %><br>
-          <strong>End time:</strong> <%= @reservation.end_time %><br>
+         <p><strong>Date de reservation:</strong> <%= @reservation.start_date %></p>
+        <br>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
           <% if @reservation.pool.user_id == current_user.id %>
             <div class="d-flex justify-content-between">
               <%= link_to "Modifier cette réservation", edit_pool_reservation_path(@reservation), class: "btn btn-primary modifier-button" %>
-              <%= link_to "Supprimer la réservation", reservation_path(@reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary modifier-button" %>
+              <%= link_to "Supprimer la réservation", reservation_path(@reservation), data: { turbo_method: :delete, turbo_confirm: "Serieux gros?" }, class: "btn btn-primary modifier-button" %>
             </div>
           <% end %>
           <%= link_to "Retour à la liste des réservations", reservations_path, class: 'btn btn-primary' %>
