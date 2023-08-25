@@ -33,9 +33,6 @@ class ReservationsController < ApplicationController
           @reservations << reservation if pool.user_id == current_user.id && reservation.owner_acceptation == false
         end
       end
-        # @reservations.each do |reservation|
-        #   @reservations << reservation if reservation.owner_acceptation == false
-        # end
     end
   end
 
