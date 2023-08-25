@@ -70,6 +70,7 @@ puts 'Pools data created'
   pool = Pool.all.sample
   user = [jean, anthony, samy].sample
   Reservation.create!(
+    start_date: Faker::Date.between(from: Date.today + 1, to: Date.today + 30),
     start_time: Faker::Date.between(from: Date.today + 1, to: Date.today + 30),
     end_time: Faker::Date.between(from: Date.today + 31, to: Date.today + 60),
     owner_acceptation: false,
