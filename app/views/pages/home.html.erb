@@ -95,7 +95,7 @@
 
         <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
         <p class="reservation-card-text"><strong>Adresse:</strong> <%= reservation.pool.address %></p>
-        <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.pool.start_date %></p>
+        <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.pool.start_time %></p>
 
 
         <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
