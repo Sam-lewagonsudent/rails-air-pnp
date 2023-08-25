@@ -33,7 +33,7 @@
               <%= link_to "Supprimer la piscine", pool_path(@pool), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary modifier-button" %>
             </div>
           <% end %>
-          <%= link_to "New reservation", new_pool_reservation_path(@pool), class: "btn btn-primary" %>
+          <%= link_to "Nouvelle reservation", new_pool_reservation_path(@pool), class: "btn btn-primary" %>
           <%= link_to "Retour à la liste des piscines", pools_path, class: 'btn btn-primary' %>
         </div>
       </div>
@@ -44,19 +44,19 @@
 
   <div class="card-reservations">
     <div class="card-content">
-      <% if @pool.reservations.any? %>
-        <h3>This pool has currently </h3>
+      <% if @pool.reservations.any? %>🩳
+        <h3>Cette piscine a actuellement:</h3>
         <ul>
           <% @pool.reservations.each do |reservation| %>
             <% if  reservation.owner_acceptation == true %>
               <li><%= link_to "Reservation on #{reservation.start_date}", reservation_path(reservation) %></li>
               <% else %>
-              <p>vous avez une reservation en attente</p>
-             <% end %>
+              <p>🔒 Vous avez une réservation en attente 🔒</p>
+              <% end %>
           <% end %>
         </ul>
       <% else %>
-        <p>There are no reservations. Why not <%= link_to 'book one', pools_path, class: "btn btn-primary" %> now?</p>
+        <p>🩳 Aucune réservaton. Pourquoi ne pas en <%= link_to 'Réserver', pools_path, class: "btn btn-primary" %> maintenant? 🩳</p>
       <% end %>
     </div>
   </div>
