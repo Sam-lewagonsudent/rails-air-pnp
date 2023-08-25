@@ -1,116 +1,113 @@
 <% if current_user.nil? %>
-    <div class="welcome-container">
-      <div class="welcome-text-container">
-        <p class="welcome-text">
-          Bonjour! veuillez <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"%> ou <%= link_to 'Log In', new_user_session_path,  class: "btn btn-primary" %> pour commencer.
-        </p>
-        <%= image_tag "Air PnP2.png" %>
-      </div>
-    </div>
+<div class="welcome-container">
+  <div class="welcome-text-container">
+    <p class="welcome-text">
+      Bonjour! veuillez <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"%> ou <%= link_to 'Log In', new_user_session_path,  class: "btn btn-primary" %> pour commencer.
+    </p>
+    <%= image_tag "Air PnP2.png" %>
+  </div>
+</div>
 <% else %>
-  <div class="banner-image">
-    <div class="banner-text">
-      <h2>Salut, <%= current_user.user_name %>!</h2>
-    </div>
-  </div>
-
-<% if @reservations.any?%>
-  <div class="your-reservations">
-    <h2 class="your-pools-header">Vos locations:</h2>
-  </div>
-  <div class="row g-0">
-    <% @reservations.each do |reservation| %>
-      <div class="col-md-6 mb-4 card-home-reservations">
-        <div class="card">
-          <div class="card-body">
-
-            <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
-            <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
-            <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
-            <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
-
-
-            <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
-            <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id:reservation.id, pool_id: reservation.pool_id), class: "btn btn-primary" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <p>Vous n'avez pas de location en attente de validation </p>
-<% end %>
-
-
-<div class="content-home">
-  <div class="d-flex justify-content-center align-items-center">
-    <div class="container-home-pools">
-      <div class="row g-0 row-home-pools-title">
-        <div class="col-md-6">
-          <div class="home-your-pools">
-            <h2 class="your-pools-header">Vos piscine:</h2>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex justify-content-end align-items-center">
-          <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-home btn-create-pool" %>
-        </div>
-      </div>
-
-      <div class="row g-0 justify-content-center">
-
-        <% current_user.pools.each do |pool| %>
-          <div class="col-md-5">
-            <div class="card-home-pools">
-              <div class="card-home">
-                <%= image_tag pool.photo, class: "card-img-top card-img-rounded-top" %>
-                <div class="card-body-home-pools">
-                  <h5 class="card-title-home-pools"><%= pool.address %></h5>
-                  <p class="card-text-home-pools"><%= pool.description %></p>
-                  <p class="card-text-home-pools"><strong>Price:</strong> <%= pool.price %> €</p>
-                  <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat btn-home" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-
-      </div>
-    </div>
+<div class="banner-image">
+  <div class="banner-text">
+    <h2>Salut, <%= current_user.user_name %>!</h2>
   </div>
 </div>
 
+<% if @reservations.any? %>
+<div class="your-reservations">
+  <h2 class="your-pools-header-other">Vos locations:</h2>
+</div>
+<div class="row g-0 justify-content-center">
+  <% @reservations.each do |reservation| %>
+  <div class="col-md-6 mb-4 card-home-reservations">
+    <div class="reservation-card sec-full-width">
+      <div class="reservation-card-content">
 
+        <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
+        <p class="reservation-card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
+        <p class="reservation-card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
+        <p class="reservation-card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
 
-
-
-
-<% if current_user.reservations.any?%>
-  <div class="your-reservations">
-    <h2 class="your-pools-header">Vos Reservations:</h2>
+        <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
+        <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id: reservation.id, pool_id: reservation.pool_id), class: "btn btn-reservation" %>
+      </div>
+    </div>
   </div>
-  <div class="row g-0">
-    <% current_user.reservations.each do |reservation| %>
-      <% if  reservation.owner_acceptation == true %>
-        <div class="col-md-6 mb-4 card-home-reservations">
-          <div class="card">
-            <div class="card-body">
+  <% end %>
+</div>
+<% else %>
+<p>Vous n'avez pas de location en attente de validation </p>
+<% end %>
 
-              <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
-              <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
-              <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
-              <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
+<div class="content-home">
+<div class="container-home-pools">
+  <div class="row row-home-pools-title">
+    <div class="col-md-6">
+      <div class="home-your-pools">
+        <h2 class="your-pools-header">Vos piscines:</h2>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end align-items-center">
+      <%= link_to "Créer une nouvelle piscine", new_pool_path, class: "btn btn-flat btn-home btn-create-pool" %>
+    </div>
+  </div>
 
-              <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
-            </div>
+
+  <div class="row row-cols-2 g-0 justify-content-center">
+    <% current_user.pools.each do |pool| %>
+    <div class="col-md-5">
+      <div class="card-home-pools full-width">
+        <div class="card-home">
+          <%= image_tag pool.photo, class: "card-img-top card-img-rounded-top custom-image-height" %>
+          <div class="card-body-home-pools">
+            <h5 class="card-title-home-pools"><%= pool.address %></h5>
+            <p class="card-text-home-pools"><%= pool.description %></p>
+            <p class="card-text-home-pools"><strong>Price:</strong> <%= pool.price %> €</p>
+            <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat btn-home btn-edit" %>
+            <%= link_to "Details", pool_path(pool), class: "btn btn-flat btn-home btn-details" %>
           </div>
         </div>
-      <% else %>
-        <p>vous avez une reservation en attente</p>
-      <% end %>
+
+      </div>
+    </div>
     <% end %>
   </div>
+</div>
+</div>
+
+
+<% if current_user.reservations.any? %>
+<div class="your-reservations">
+  <h2 class="your-pools-header-other">Vos Reservations:</h2>
+</div>
+  <div class="row g-0 justify-content-center">
+    <% current_user.reservations.each do |reservation| %>
+     <% if  reservation.owner_acceptation == true %>
+          <div class="col-md-6 mb-4 card-home-reservations">
+            <div class="reservation-card sec-full-width">
+              <div class="reservation-card-content">
+
+                <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
+                <p class="reservation-card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
+                <p class="reservation-card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
+                <p class="reservation-card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
+
+                <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
+
+               </div>
+              </div>
+            </div>
+        <% else %>
+          <p>vous avez une reservation en attente</p>
+        <% end %>
+      <% end %>
+
+    </div>
+  <% end %>
+</div>
 <% else %>
-  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
+<p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
 <% end %>
-  </div>
+</div>
 <% end %>
