@@ -73,9 +73,11 @@ puts 'Pools data created'
   end_date = Faker::Date.between(from: start_date + 1, to: start_date + 30)
 
   Reservation.create!(
+
     start_date: start_date,
     start_time: start_date,
     end_time: end_date,
+
     owner_acceptation: false,
     user: user,
     pool: pool
