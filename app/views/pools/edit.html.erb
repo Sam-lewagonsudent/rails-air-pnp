@@ -1,10 +1,15 @@
 <h1>Modifier la piscine</h1>
+<div classe = "container">
+  <div class = "row justify-content-center">
+    <div class = "col-8">
+      <%= render "form", pool: @pool %>
 
-<%= render "form", pool: @pool %>
+      <br>
 
-<br>
-
-<div>
-<%= link_to "Retour aux piscines", @pool, class: "btn btn-primary" %> |
-  <%= link_to "Retour à l'accueil", root_path, class: "btn btn-primary" %>
+      <div>
+      <%= link_to "Retour aux piscines", @pool, class: "btn btn-primary" %> |
+        <%= link_to "Retour à l'accueil", root_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>

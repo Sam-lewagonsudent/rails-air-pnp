@@ -24,13 +24,13 @@
     <div class="reservation-card sec-full-width">
       <div class="reservation-card-content">
 
-        <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
+        <h5 class="reservation-card-title"><%= "Reservation pour #{reservation.pool.address}" %></h5>
         <p class="reservation-card-text"><strong>Adresse:</strong> <%= reservation.pool.address %></p>
         <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.start_date %></p>
 
 
-        <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
-        <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id: reservation.id, pool_id: reservation.pool_id), class: "btn btn-reservation" %>
+        <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation btn-primary" %>
+        <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id: reservation.id, pool_id: reservation.pool_id), class: "btn btn-reservation btn-primary" %>
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@
             <h5 class="card-title-home-pools"><%= pool.address %></h5>
             <p class="card-text-home-pools"><%= pool.description %></p>
             <p class="card-text-home-pools"><strong>Price:</strong> <%= pool.price %> €</p>
-            <%= link_to "Edit", edit_pool_path(pool), class: "btn btn-flat btn-home btn-edit" %>
+            <%= link_to "Editer", edit_pool_path(pool), class: "btn btn-flat btn-home btn-edit" %>
             <%= link_to "Details", pool_path(pool), class: "btn btn-flat btn-home btn-details" %>
           </div>
         </div>
@@ -93,12 +93,12 @@
     <div class="reservation-card sec-full-width">
       <div class="reservation-card-content">
 
-        <h5 class="reservation-card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
+        <h5 class="reservation-card-title"><%= "Reservation pour #{reservation.pool.address} " %></h5>
         <p class="reservation-card-text"><strong>Adresse:</strong> <%= reservation.pool.address %></p>
-        <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.pool.start_date %></p>
+        <p class="reservation-card-text"><strong>Date de reservation:</strong> <%= reservation.start_date %></p>
 
 
-        <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation" %>
+        <%= link_to "Details", reservation_path(reservation), class: "btn btn-reservation btn-primary" %>
 
       </div>
     </div>

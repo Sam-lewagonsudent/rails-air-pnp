@@ -1,9 +1,15 @@
-<h1>Reservation#new</h1>
+<h1>Nouvelle reservation</h1>
 
-<%= render "form", reservation: @reservation, pool: @pool %>
+<div classe = "container">
+  <div class = "row justify-content-center">
+    <div class = "col-8">
+      <%= render "form", reservation: @reservation, pool: @pool %>
 
-<br>
+      <br>
 
-<div>
-  <%= link_to "Revenir à l'accueil", pools_path, class: "btn btn-primary" %>
+      <div>
+        <%= link_to "Revenir à l'accueil", pools_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>
