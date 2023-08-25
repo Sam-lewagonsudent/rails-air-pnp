@@ -45,7 +45,11 @@
         <h3>This pool has currently </h3>
         <ul>
           <% @pool.reservations.each do |reservation| %>
-            <li><%= link_to "Reservation on #{reservation.start_date}", reservation_path(reservation) %></li>
+            <% if  reservation.owner_acceptation == true %>
+              <li><%= link_to "Reservation on #{reservation.start_date}", reservation_path(reservation) %></li>
+              <% else %>
+              <p>vous avez une reservation en attente</p>
+             <% end %>
           <% end %>
         </ul>
       <% else %>

@@ -29,14 +29,16 @@
             <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
             <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
 
-            <%= link_to "Edit", reservation_path(reservation), class: "btn btn-primary" %>
+
+            <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+            <%= link_to "Modifier cette réservation", edit_pool_reservation_path(id:reservation.id, pool_id: reservation.pool_id), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 <% else %>
-  <p>Vous n'avez pas de reservation, pourquoi pas <%= link_to 'reserver une piscine', pools_path, class: "btn btn-primary"%> now?</p>
+  <p>Vous n'avez pas de location en attente de validation </p>
 <% end %>
 
 
@@ -55,6 +57,7 @@
       </div>
 
       <div class="row g-0 justify-content-center">
+
         <% current_user.pools.each do |pool| %>
           <div class="col-md-5">
             <div class="card-home-pools">
@@ -70,6 +73,7 @@
             </div>
           </div>
         <% end %>
+
       </div>
     </div>
   </div>
@@ -80,25 +84,29 @@
 
 
 
-<% if current_user.reservations.any? %>
+<% if current_user.reservations.any?%>
   <div class="your-reservations">
     <h2 class="your-pools-header">Vos Reservations:</h2>
   </div>
   <div class="row g-0">
     <% current_user.reservations.each do |reservation| %>
-      <div class="col-md-6 mb-4 card-home-reservations">
-        <div class="card">
-          <div class="card-body">
+      <% if  reservation.owner_acceptation == true %>
+        <div class="col-md-6 mb-4 card-home-reservations">
+          <div class="card">
+            <div class="card-body">
 
-            <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
-            <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
-            <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
-            <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
+              <h5 class="card-title"><%= "Reservation for #{reservation.pool.address} on #{reservation.start_time}" %></h5>
+              <p class="card-text"><strong>Pool Address:</strong> <%= reservation.pool.address %></p>
+              <p class="card-text"><strong>Start time:</strong> <%= reservation.start_time %></p>
+              <p class="card-text"><strong>End time:</strong> <%= reservation.end_time %></p>
 
-            <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+              <%= link_to "Details", reservation_path(reservation), class: "btn btn-primary" %>
+            </div>
           </div>
         </div>
-      </div>
+      <% else %>
+        <p>vous avez une reservation en attente</p>
+      <% end %>
     <% end %>
   </div>
 <% else %>

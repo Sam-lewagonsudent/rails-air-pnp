@@ -7,6 +7,9 @@
   <%= f.input :start_date %>
     <%= f.input :start_time%>
     <%= f.input :end_time %>
+    <% if @reservations.any?%>
+    <%= f.input :owner_acceptation %>
+    <% end %>
   </div>
 
   <div class="form-actions">
