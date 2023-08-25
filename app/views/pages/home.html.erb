@@ -2,7 +2,7 @@
 <div class="welcome-container">
   <div class="welcome-text-container">
     <p class="welcome-text">
-      Bonjour! veuillez <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-primary"%> ou <%= link_to 'Log In', new_user_session_path,  class: "btn btn-primary" %> pour commencer.
+      <%= link_to 'Inscription', new_user_registration_path, class: "btn btn-primary"%>  <%= link_to 'Connexion', new_user_session_path,  class: "btn btn-primary" %>
     </p>
     <%= image_tag "Air PnP2.png" %>
   </div>
