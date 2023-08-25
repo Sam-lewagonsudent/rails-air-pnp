@@ -1,23 +1,38 @@
-<div class="text-center">
-  <h1 class="mb-4">Détails de la réservation</h1>
-</div>
+<div class="cards-container">
+  <div class="card-details-showreserv">
+    <div class="card-image-showreserv">
+      <%= cl_image_tag @reservation.pool.photo.key, class: "top-image"%>
+    </div>
+    <div class="card-content">
+      <h1 class="card-title"><strong>Détails de la réservation</strong></h1>
 
-<div class="card">
-
-
-      <%= cl_image_tag @reservation.pool.photo.key, class: "card-img-top", crop: :fill, width: 300, height: 200 %>
-      <div class="card-body">
-        <h5 class="card-title"><%= @reservation.pool.address %></h5>
-        <p class="card-text"><strong>Prix :</strong> <%= @reservation.pool.price %> €</p>
-        <p class="card-text"><strong>Date de réservation :</strong> <%= @reservation.start_date %></p>
-
-
-        <%= link_to "Modifier cette réservation", edit_pool_reservation_path(@reservation), class: "btn btn-primary" %>
-        <%= link_to "Supprimer la réservation",
-          reservation_path(@reservation),
-          data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" },
-          class: "btn btn-primary"
-        %>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <strong>Pool Address:</strong> <%= @reservation.pool.address %><br>
+        </div>
+        <div class="col-md-6">
+          <label for="pool_photo"></label>
+        </div>
       </div>
 
+      <div class="row g-3">
+        <div class="col-12 mt-3">
+          <strong>Start time:</strong> <%= @reservation.start_time %><br>
+          <strong>End time:</strong> <%= @reservation.end_time %><br>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-12 mt-3">
+          <% if @reservation.pool.user_id == current_user.id %>
+            <div class="d-flex justify-content-between">
+              <%= link_to "Modifier cette réservation", edit_pool_reservation_path(@reservation), class: "btn btn-primary modifier-button" %>
+              <%= link_to "Supprimer la réservation", reservation_path(@reservation), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary modifier-button" %>
+            </div>
+          <% end %>
+          <%= link_to "Retour à la liste des réservations", reservations_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
