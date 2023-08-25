@@ -1,4 +1,7 @@
 class Pool < ApplicationRecord
+  SHAPE = ['round', 'square', 'drop', 'natural']
+  FACILITIES = ['BBQ', 'transat', 'ballon', 'umbrella', 'shower']
+
   belongs_to :user
   has_many :reservations, dependent: :destroy
 

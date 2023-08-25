@@ -10,8 +10,8 @@
   <div class="col-md-6">
     <%= form.input :address, label: 'Adresse', as: :text, class: 'form-control' %>
     <%= form.input :description, label: 'Description', as: :text, class: 'form-control' %>
-    <%= form.input :shape, label: 'Forme', class: 'form-control' %>
-    <%= form.input :facilities, label: 'Équipements', as: :text, class: 'form-control' %>
+    <%= form.input :shape, label: 'Forme', collection: ['ovale', 'rectangulaire', 'goute'], class: 'form-control' %>
+    <%= form.input :facilities, label: 'Équipements',collection:['BBQ', 'four a pizza','douche exterieure'], class: 'form-control' %>
     <%= form.input :photo, as: :file,label: 'photo', class: 'form-control' %>
   </div>
 
