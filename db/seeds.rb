@@ -69,15 +69,18 @@ puts 'Pools data created'
 6.times do
   pool = Pool.all.sample
   user = [jean, anthony, samy].sample
+  start_date = Faker::Date.between(from: Date.today + 1, to: Date.today + 29)
+  end_date = Faker::Date.between(from: start_date + 1, to: start_date + 30)
+
   Reservation.create!(
-    start_time: Faker::Date.between(from: Date.today + 1, to: Date.today + 30),
-    end_time: Faker::Date.between(from: Date.today + 31, to: Date.today + 60),
+    start_date: start_date,
+    start_time: start_date,
+    end_time: end_date,
     owner_acceptation: false,
     user: user,
     pool: pool
   )
 end
-
 
 puts 'Reservations data created'
 

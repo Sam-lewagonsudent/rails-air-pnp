@@ -47,9 +47,9 @@
   margin-bottom: 0px;
 }
 
-.card-home {
-  height: 500px;
-  border: none;
+.card-home-pools {
+  padding: 0px;
+  width: calc(5/12 * 100%);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -87,20 +87,6 @@
   color: white;
 }
 
-.card-home-pools {
-  padding: 0px;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-img {
-  object-fit: cover;
-}
-
 .row-home-pools-title {
   margin: 20px;
 }
@@ -109,25 +95,64 @@ img {
   font-weight: bold;
 }
 
-.your-reservations {
-  margin-left: 20px;
-  margin-right: 20px;
+.reservation-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  background-color: white;
+  width: calc(5/12 * 100%);
 }
 
-.card {
-  margin-left: 10px;
-  margin-right: 10px;
+.reservation-card-content {
+  padding: 20px;
 }
 
-.card-home-reservations {
-  margin: 0px;
+.reservation-card-title {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.card-img-rounded-top {
+.reservation-card-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.btn-reservation {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.full-width {
+  width: 95%;
+}
+
+.sec-full-width {
+  width: 95%;
+}
+
+.custom-image-height {
+  height: 350px;
+  object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.card-body-home-pools {
-  width: 100%;
+.card-body-home-pools{
+  padding: 10px;
+}
+
+.card-home-reservations{
+  margin-bottom: 20px !important;
+}
+
+.your-pools-header-other{
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 25px;
 }
